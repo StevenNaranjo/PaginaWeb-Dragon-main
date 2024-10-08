@@ -64,7 +64,23 @@ document.addEventListener('DOMContentLoaded', () => {
             console.error('Error al obtener los tours filtrados:', error);
         }
     }
-
+    function formatCustomDateManually(dateString) {
+        // Extraer los componentes manualmente desde la cadena
+        const date = new Date(dateString);
+        const hours = dateString.slice(11, 16); // Toma las horas y minutos directamente de la cadena
+        const day = dateString.slice(8, 10); // Día
+        const month = dateString.slice(5, 7); // Mes en formato numérico
+        const year = dateString.slice(0, 4); // Año
+    
+        // Crear un array con los nombres de los meses
+        const months = ['enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio', 'julio', 'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre'];
+    
+        // Convertir el mes numérico en el nombre del mes correspondiente
+        const monthName = months[parseInt(month, 10) - 1]; // Convertir a índice del array
+    
+        // Devolver el formato deseado: "14:00, 17 de octubre del 2024"
+        return `${hours}, ${day} de ${monthName} del ${year}`;
+    }
     function renderServicios(tours) {
         const toursContainer = document.querySelector('.row.servicios');
         toursContainer.innerHTML = '';
@@ -81,8 +97,8 @@ document.addEventListener('DOMContentLoaded', () => {
                         
                             <div class="card-body">
                                 <h3 class="card-title">${tour.nombre}</h3>
-                                <p class="card-text">Fecha salida: ${new Date(tour.horafechasalida).toLocaleDateString()}</p>
-                                <p class="card-text">Fecha llegada: ${new Date(tour.horafechallegada).toLocaleDateString()}</p>
+                                <p><strong>Fecha de salida:</strong> ${formatCustomDateManually(tour.horafechasalida)}</p>
+                                <p><strong>Fecha de llegada:</strong> ${formatCustomDateManually(tour.horafechallegada)}</p>
                                 <p class="card-text"><strong>Precio en colones: ${tour.precio}</strong></p>
                             </div>
                         </a>

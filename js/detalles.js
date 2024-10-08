@@ -146,6 +146,27 @@ document.addEventListener('DOMContentLoaded', function() {
       });
     });
   }
+  function formatCustomDateManually(dateString) {
+    // Extraer los componentes manualmente desde la cadena
+    const date = new Date(dateString);
+    const hours = dateString.slice(11, 16); // Toma las horas y minutos directamente de la cadena
+    const day = dateString.slice(8, 10); // Día
+    const month = dateString.slice(5, 7); // Mes en formato numérico
+    const year = dateString.slice(0, 4); // Año
+
+    // Crear un array con los nombres de los meses
+    const months = ['enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio', 'julio', 'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre'];
+
+    // Convertir el mes numérico en el nombre del mes correspondiente
+    const monthName = months[parseInt(month, 10) - 1]; // Convertir a índice del array
+
+    // Devolver el formato deseado: "14:00, 17 de octubre del 2024"
+    return `${hours}, ${day} de ${monthName} del ${year}`;
+}
+
+
+
+// Uso
 
   // Función para renderizar los detalles del servicio
   function renderServiceDetails(service) {
@@ -155,8 +176,9 @@ document.addEventListener('DOMContentLoaded', function() {
       <img src="${service.enlaceimagen || 'https://via.placeholder.com/400x200'}" alt="${service.textoalternativo}" width="400" height="400">
       <p><strong>Descripción:</strong> ${service.descripcion}</p>
       <p><strong>Dificultad:</strong> ${service.dificultad}</p>
-      <p><strong>Fecha de salida:</strong> ${new Date(service.horafechasalida).toLocaleString()}</p>
-      <p><strong>Fecha de llegada:</strong> ${new Date(service.horafechallegada).toLocaleString()}</p>
+      <p><strong>Fecha de salida:</strong> ${formatCustomDateManually(service.horafechasalida)}</p>
+      <p><strong>Fecha de llegada:</strong> ${formatCustomDateManually(service.horafechallegada)}</p>
+
       <p><strong>Precio:</strong> ₡${service.precio}</p>
       <p><strong>Incluye:</strong> ${service.incluyeactividad}</p>
     `;
