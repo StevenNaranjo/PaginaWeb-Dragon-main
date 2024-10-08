@@ -104,7 +104,7 @@ async function crearServicio(data) {
         const result = await response.json();
         if (response.ok) {
             alert('Servicio creado exitosamente');
-            window.location.href = 'modifActividad.html'; // Redirigir a la página principal o donde prefieras
+            window.location.href = 'perfilAdmin.html'; // Redirigir a la página principal o donde prefieras
         } else {
             alert('Error al crear el servicio: ' + result.message);
         }
@@ -128,7 +128,7 @@ async function actualizarServicio(codigoServicio, data) {
         const result = await response.json();
         if (response.ok) {
             alert('Servicio actualizado exitosamente');
-            window.location.href = 'modifActividad.html'; // Redirigir a la página principal o donde prefieras
+            window.location.href = 'perfilAdmin.html'; // Redirigir a la página principal o donde prefieras
         } else {
             alert('Error al actualizar el servicio: ' + result.message);
         }
