@@ -28,7 +28,12 @@ document.addEventListener('DOMContentLoaded', function() {
       alert('El número de personas no puede exceder de 15.');
       inputNumPersonas.value = 15; // Limitar a 15
       numPersonas = 15;
-    } else {
+    } else if (cantidadPersonas < 1){
+      alert('El número de personas debe ser al menos 1.');
+      inputNumPersonas.value = 1; // Establecer el valor mínimo
+      numPersonas = 1;
+    }
+    else {
       numPersonas = cantidadPersonas;
     }
 
