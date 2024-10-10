@@ -11,12 +11,12 @@ async function cargarTestimonios() {
         testimonios.forEach(testimonio => {
             const fila = `
                 <tr>
-                    <td>${testimonio.nombreUsuario}</td>
+                    <td>${testimonio.nombreusuario}</td>
                     <td>${testimonio.comentario}</td>
                     <td>${testimonio.estado === 1 ? 'Aprobado' : 'Pendiente'}</td>
                     <td>
-                        <button class="btn btn-outline-success btn-sm" style="font-size: 20px;" onclick="aprobarTestimonio(${testimonio.idTestimonio})">✅</button>
-                        <button class="btn btn-outline-danger btn-sm" style="font-size: 20px;" onclick="eliminarTestimonio(${testimonio.idTestimonio})">🗑️</button>
+                        <button class="btn btn-outline-success btn-sm" style="font-size: 20px;" onclick="aprobarTestimonio(${testimonio.idtestimonio})">✅</button>
+                        <button class="btn btn-outline-danger btn-sm" style="font-size: 20px;" onclick="eliminarTestimonio(${testimonio.idtestimonio})">🗑️</button>
                     </td>
                 </tr>
             `;
