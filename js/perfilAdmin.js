@@ -28,9 +28,9 @@ async function cargarServicios() {
                     <td>${servicio.codigoservicio}</td>
                     <td>${fechaSalida} al ${fechaLlegada}</td>
                     <td>${tipoActividad}</td>
-                    <td>₡${parseFloat(servicio.precio).toLocaleString()}</td>
+                    <td style="text-align: right;">₡${parseFloat(servicio.precio).toLocaleString()}</td>
                     <td>
-                        <button class="btn btn-outline-success btn-sm" style="font-size: 20px;" onclick="editarServicio(${servicio.codigoservicio})">✏️</button>
+                        <button class="btn btn-outline-success btn-sm" style="font-size: 20px;" onclick="guardarCodigoServicioYEditar(${servicio.codigoservicio})">✏️</button>
                         <button class="btn btn-outline-danger btn-sm" style="font-size: 20px;" onclick="eliminarServicio(${servicio.codigoservicio})">🗑️</button>
                     </td>
                 </tr>
@@ -42,11 +42,14 @@ async function cargarServicios() {
     }
 }
 
-// Función para redirigir a la página de modificación de servicio
-function editarServicio(codigoServicio) {
-    window.location.href = `modifActividad.html?codigoServicio=${codigoServicio}`;
+function guardarCodigoServicioYEditar(codigoServicio) {
+    if (codigoServicio) {
+        sessionStorage.setItem('codigoServicio', codigoServicio);
+        window.location.href = 'modifActividad.html'; // Redirige a la página sin parámetros en la URL
+    } else {
+        console.error('No se pudo guardar el código del servicio, es nulo o indefinido');
+    }
 }
-
 // Función para eliminar un servicio
 async function eliminarServicio(codigoServicio) {
     if (confirm('¿Estás seguro de que deseas eliminar este servicio?')) {

@@ -1,6 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
-  const codigoServicio = new URLSearchParams(window.location.search).get('codigoServicio');
-  
+  const codigoServicio = sessionStorage.getItem('codigoServicio');
   // Verificar si hay un código de servicio en la URL
   if (!codigoServicio) {
     alert('No se encontró un código de servicio válido.');

@@ -88,13 +88,12 @@ document.addEventListener('DOMContentLoaded', () => {
             toursContainer.innerHTML = '<p>No se encontraron servicios para esta categoría.</p>';
             return;
         }
-        tours.forEach(tour => {
+        tours.forEach((tour, index) => {
             const tourHTML = `
                 <div class="col-md-4 mb-4">
                     <div class="card">
-                        <a href="detalles.html?codigoServicio=${tour.codigoservicio}">
+                        <a href="#" class="service-link" data-codigo="${tour.codigoservicio}">
                             <img src="${tour.enlaceimagen || 'https://via.placeholder.com/400x200'}" loading="lazy" class="card-img-top" alt="${tour.textoalternativo}" width="400" height="300">
-                        
                             <div class="card-body">
                                 <h3 class="card-title">${tour.nombre}</h3>
                                 <p><strong>Fecha de salida:</strong> ${formatCustomDateManually(tour.horafechasalida)}</p>
@@ -107,8 +106,26 @@ document.addEventListener('DOMContentLoaded', () => {
             `;
             toursContainer.insertAdjacentHTML('beforeend', tourHTML);
         });
+    
+        // Agregar manejadores de eventos a los enlaces generados dinámicamente
+        document.querySelectorAll('.service-link').forEach(link => {
+            link.addEventListener('click', function(event) {
+                event.preventDefault();
+                const codigoServicio = this.getAttribute('data-codigo');
+                saveServiceCode(codigoServicio);
+            });
+        });
     }
-
+    
+    function saveServiceCode(codigoServicio) {
+        if (codigoServicio) {
+            sessionStorage.setItem('codigoServicio', codigoServicio);
+            console.log('Código del servicio guardado:', codigoServicio);
+            window.location.href = 'detalles.html'; // Redirige a la página de detalles
+        } else {
+            console.error('No se pudo guardar el código del servicio, es nulo o indefinido');
+        }
+    }
     // Hacer las funciones disponibles globalmente
     window.filtrarServicios = filtrarServicios;
     window.fetchServicios = fetchServicios;

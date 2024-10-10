@@ -1,0 +1,58 @@
+<!-- gestion testimonios.html -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Cerro Dragón Tours</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/letras.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    
+  <header>
+    <div id="header-placeholder" class="bg-success"></div>
+  </header>
+
+    <main>
+      <div class="container">
+        <div class="position-relative" style="margin-bottom: 20px; margin-top: 20px;">
+            <h1 class="banner text-start" style="color: black;">Administración de testimonios</h1>
+        </div>            
+            <table class="table table-bordered w-100 my-3">
+              <thead>
+                  <tr>
+                      <th>Nombre del cliente</th>
+                      <th>Testimonio del cliente</th>
+                      <th>Estado</th>
+                      <th>Acciones</th>
+                  </tr>
+              </thead>
+              <!-- Aquí se cargarán las filas de la base de datos con JavaScript -->
+              <tbody id="testimoniesTableBody">
+                <!-- Aquí se cargarán las filas de la base de datos con JavaScript -->
+            </tbody>
+          </table>
+
+        <!-- Usando solo un enlace con clases de botón -->
+        <a href="perfilAdmin.html" class="btn btn-success d-inline-flex align-items-center mb-5 text-center text-white" aria-label="Volver al perfil de administrador">
+          Volver al perfil de administrador
+        </a>
+
+      </div>
+    
+    <!-- AQUI CODE -->
+    </main>
+
+    <footer>
+      <div id="footer-placeholder" class="bg-success"></div>
+    </footer>
+
+</body>
+<script src="https://cdn.jsdelivr.net/npm/jwt-decode/build/jwt-decode.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+<script src="js/script.js"></script>
+<script src="js/gestion.js"></script>
+</html>

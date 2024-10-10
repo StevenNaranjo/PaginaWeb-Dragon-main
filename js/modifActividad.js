@@ -9,8 +9,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         return; // Detiene la carga de la página
     }
 
-    const urlParams = new URLSearchParams(window.location.search);
-    const codigoServicio = urlParams.get('codigoServicio'); // Obtener el parámetro de la URL
+    const codigoServicio = sessionStorage.getItem('codigoServicio');
 
     if (codigoServicio) {
         // Si existe código de servicio, estamos modificando, cargar los datos
