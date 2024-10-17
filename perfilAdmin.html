@@ -22,9 +22,9 @@
             <h1 class="banner text-start" style="color: black;">Administración de actividades y alianzas</h1>
         </div>
             <p>Administre las actividades de la empresa</p>
-            <button class="btn btn-success ml-2" aria-label="Botón de agregar actividad" onclick="window.location.href='modifActividad.html'">
+            <<button class="btn btn-success ml-2" aria-label="Botón de agregar actividad" onclick="eliminarCodigoServicio(); window.location.href='modifActividad.html'">
               <strong>+</strong>
-            </button>
+          </button>
             
             <table class="table table-bordered w-100 my-3">
               <thead>
@@ -62,6 +62,11 @@
     </footer>
 
 </body>
+<script>
+  function eliminarCodigoServicio() {
+      sessionStorage.removeItem('codigoServicio');
+  }
+  </script>
 <script src="https://cdn.jsdelivr.net/npm/jwt-decode/build/jwt-decode.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 <script src="js/script.js"></script>
