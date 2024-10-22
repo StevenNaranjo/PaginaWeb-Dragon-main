@@ -15,8 +15,8 @@ async function cargarTestimonios() {
                     <td>${testimonio.comentario}</td>
                     <td>${testimonio.estado === 1 ? 'Aprobado' : 'Pendiente'}</td>
                     <td>
-                        <button class="btn btn-outline-success btn-sm" style="font-size: 20px;" onclick="aprobarTestimonio(${testimonio.idtestimonio})">✅</button>
-                        <button class="btn btn-outline-danger btn-sm" style="font-size: 20px;" onclick="eliminarTestimonio(${testimonio.idtestimonio})">🗑️</button>
+                        <button class="btn btn-outline-success btn-sm" style="font-size: 20px;" onclick="aprobarTestimonio(${testimonio.idtestimonio})" data-bs-toggle="tooltip" title="Aprobar testimonio">✅</button>
+                        <button class="btn btn-outline-danger btn-sm" style="font-size: 20px;" onclick="eliminarTestimonio(${testimonio.idtestimonio})" data-bs-toggle="tooltip" title="Eliminar testimonio">🗑️</button>
                     </td>
                 </tr>
             `;

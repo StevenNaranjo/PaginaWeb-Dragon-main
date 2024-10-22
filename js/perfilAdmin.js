@@ -30,8 +30,8 @@ async function cargarServicios() {
                     <td>${tipoActividad}</td>
                     <td style="text-align: right;">₡${parseFloat(servicio.precio).toLocaleString()}</td>
                     <td>
-                        <button class="btn btn-outline-success btn-sm" style="font-size: 20px;" onclick="guardarCodigoServicioYEditar(${servicio.codigoservicio})">✏️</button>
-                        <button class="btn btn-outline-danger btn-sm" style="font-size: 20px;" onclick="eliminarServicio(${servicio.codigoservicio})">🗑️</button>
+                        <button class="btn btn-outline-success btn-sm" style="font-size: 20px;" onclick="guardarCodigoServicioYEditar(${servicio.codigoservicio})" data-bs-toggle="tooltip" title="Modificar actividad">✏️</button>
+                        <button class="btn btn-outline-danger btn-sm" style="font-size: 20px;" onclick="eliminarServicio(${servicio.codigoservicio})" data-bs-toggle="tooltip" title="Eliminar actividad">🗑️</button>
                     </td>
                 </tr>
             `;
